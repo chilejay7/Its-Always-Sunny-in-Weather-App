@@ -40,6 +40,11 @@ label {
 
 button {
     border-radius: .5em;
-    background-color: var(--color0);
+    background-color: var(--color5);
     font-weight: bold;
+}
+
+#forecast-display {
+    width: 100%;
+    background-color: var(--color2);
 }

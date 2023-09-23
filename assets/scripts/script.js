@@ -7,7 +7,7 @@ const searchInput = $('#city-input');
 // const searchInput = document.querySelector('#city-input');
 // const searchInput = document.getElementById('city-input');
 
-// let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=a65fbee006d1cdf010afb7d2f7201d89`
+const forecastDisplay = $('#forecast-display')
 
 searchForm.on('submit', function (e) {
     console.log(e);
@@ -18,6 +18,8 @@ searchForm.on('submit', function (e) {
     // This calls the getWeather function to make the API call and uses the City searched for in the input field.
     getWeather(inputCity);
 
+    // displayForecast(getWeather);
+    
     // This clears the input field after searching.
     searchInput.val('');
 
@@ -30,7 +32,7 @@ searchForm.on('submit', function (e) {
 // })
 
 getWeather = (city) => {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
             console.log(response);
             return response.json();
@@ -45,6 +47,13 @@ getWeather = (city) => {
 //     // console.log(response);
 //     console.log(data);
 // }
+
+displayForecast = (fnc) => {
+    fnc();
+
+    console.log
+
+}
 
 // This function adds an autocomplete menu for various cities using the jQuery UI.
 $(function () {
