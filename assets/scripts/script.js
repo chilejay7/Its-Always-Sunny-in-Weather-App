@@ -1,6 +1,7 @@
 const currentTime = dayjs();
-const apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={a65fbee006d1cdf010afb7d2f7201d89}'
+const apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={}'
 const searchForm = $('#search-form');
+const cities = ['Denver', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser']
 // const searchForm = document.getElementById('search-form');
 
 
@@ -23,7 +24,22 @@ const searchForm = $('#search-form');
 //     console.log(e);
 // })
 
-searchForm.on('submit', function (e) {
-    console.log(e);
-})
+// searchForm.on('submit', function (e) {
+//     console.log(e);
+// })
+// $(function() {
+//     $('#city-input').autocomplete({
+//         source: cities
+//     });
+// });
 
+// This function adds an autocomplete menu for various cities using the jQuery UI.
+$(function () {  
+    $('#city-input').autocomplete({
+      source: cities,
+    })
+  });
+
+  $( function() {
+    $( "#city-list" ).sortable();
+  } );
