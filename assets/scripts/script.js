@@ -1,17 +1,44 @@
 const currentTime = dayjs();
-const apiUrl = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={}'
 const searchForm = $('#search-form');
 const cities = ['Denver', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser']
 // const searchForm = document.getElementById('search-form');
 
+const searchInput = $('#city-input');
+// const searchInput = document.querySelector('#city-input');
+// const searchInput = document.getElementById('city-input');
 
-// fetch(apiUrl) 
-// .then(function(response){
-//     console.log(response);
+// let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=a65fbee006d1cdf010afb7d2f7201d89`
+
+searchForm.on('submit', function (e) {
+    console.log(e);
+    e.preventDefault();
+    let inputCity = searchInput.val();
+    console.log(inputCity);
+
+    // This calls the getWeather function to make the API call and uses the City searched for in the input field.
+    getWeather(inputCity);
+
+    // This clears the input field after searching.
+    searchInput.val('');
+
+
+})
+
+// searchForm.addEventListener('submit', function (e) {
+//     e.preventDefault;
+//     console.log(e);
 // })
-// .then(function (data) {
-//     console.log(data)
-// });
+
+getWeather = (city) => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89`)
+        .then(function (response) {
+            console.log(response);
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+        });
+}
 
 // getWeather = async (url) => {
 //     let forecast = await url;
@@ -19,27 +46,14 @@ const cities = ['Denver', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Fall
 //     console.log(data);
 // }
 
-// searchForm.addEventListener('submit', function (e) {
-//     e.preventDefault;
-//     console.log(e);
-// })
-
-// searchForm.on('submit', function (e) {
-//     console.log(e);
-// })
-// $(function() {
-//     $('#city-input').autocomplete({
-//         source: cities
-//     });
-// });
-
 // This function adds an autocomplete menu for various cities using the jQuery UI.
-$(function () {  
+$(function () {
     $('#city-input').autocomplete({
-      source: cities,
+        source: cities,
     })
-  });
+});
 
-  $( function() {
-    $( "#city-list" ).sortable();
-  } );
+// This would allow for a sortable list of cities.
+$(function () {
+    $("#city-list").sortable();
+});
