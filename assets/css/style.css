@@ -1,0 +1,38 @@
+:root {
+    --color0: #D9ED92;
+    --color1: #B5E48C;
+    --color2: #99D98C;
+    --color3: #76C893;
+    --color4: #52B69A;
+    --color5: #34A0A4;
+    --color6: #168AAD;
+    --color7: #1A759F;
+    --color8: #1E6091;
+    --color9: #184E77;
+}
+
+*{
+    margin: 0;
+    padding: 5px;
+}
+
+header {
+    background-color: var(--color0);
+    text-align: center;
+}
+
+body {
+    background-color: var(--color7);
+}
+
+form {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+button {
+    border-radius: .5em;
+    background-color: var(--color1);
+    font-weight: bold;
+}
