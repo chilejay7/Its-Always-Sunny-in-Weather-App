@@ -1,6 +1,6 @@
 const currentTime = dayjs();
 const searchForm = $('#search-form');
-const autoCompleteList = ['Denver', 'Granville', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser']
+const autoCompleteList = ['Denver', 'Granville', 'Lawrence', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser']
 // const searchForm = document.getElementById('search-form');
 
 const searchInput = $('#city-input');
@@ -21,7 +21,7 @@ searchForm.on('submit', function (e) {
     console.log(inputCity);
 
     // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
-    getWeather(inputCity);
+    getWeather(inputCity, currentForecast);
 
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
     searchedCities.push(inputCity);
@@ -42,8 +42,8 @@ searchForm.on('submit', function (e) {
 // })
 
 
-// This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  This function is called in the submit event listener.
-getWeather = (city) => {
+// This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added as arguments. These will be used to call the functions that poulate forecast data into the cards. This function is called in the submit event listener and the city list function.
+getWeather = (city, fnc1) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
             console.log(response);
@@ -51,6 +51,9 @@ getWeather = (city) => {
         })
         .then(function (data) {
             console.log(data)
+
+            // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
+            fnc1();
         });
 }
 
@@ -76,16 +79,14 @@ cityList[0].addEventListener('click', function(e) {
        if (e.target.tagName === 'BUTTON') {
         console.log(e.target.innerText);
 
-        // This calls the same getWeather function defined earlier to be used within the submit form listener.  The function was designed for resuse by adding the city argument.  That arguemnt is what allows the event target's inner text to be passed to the API call here.
+        // This calls the same getWeather function defined earlier to be used within the submit form listener.  The function was designed for reuse by adding the city argument.  That argument is what allows the event target's inner text to be passed to the API call here.
         getWeather(e.target.innerText);
     }
 });
 
 
-displayForecast = (fnc) => {
-    fnc();
-
-    console.log
+currentForecast = () => {
+    console.log('current forecast is working')
 
 }
 
