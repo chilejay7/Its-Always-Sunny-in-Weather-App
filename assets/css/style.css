@@ -49,9 +49,9 @@ button {
     border-radius: .5em;
 }
 
-#forecast-row {
+/* #forecast-row {
     flex-wrap: nowrap;
-}
+} */
 
 /* ul{
     width: 10%;
