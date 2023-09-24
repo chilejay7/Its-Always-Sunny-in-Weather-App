@@ -18,6 +18,8 @@ searchForm.on('submit', function (e) {
     // This calls the getWeather function to make the API call and uses the City searched for in the input field.
     getWeather(inputCity);
 
+    // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
+    searchedCities.push(inputCity);
     // displayForecast(getWeather);
     
     // This clears the input field after searching.
@@ -66,3 +68,14 @@ $(function () {
 // $(function () {
 //     $("#city-list").sortable();
 // });
+
+
+// To make this work an array will probably be needed.  It will start empty and need to be written to local storage.
+const citySearchBtns = $('#city-list');
+const searchedCities = [];
+
+createCityButtons = () => {
+for (let i=0; i < citySearchBtns[0].children.length; i++) {
+    citySearchBtns[0].children[i].innerText = searchedCities[i]
+}
+}
