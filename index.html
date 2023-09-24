@@ -32,86 +32,88 @@
         </form>
     </header>
 
-    <main>
+    <main id="main">
+        <div class="container-fluid m-0" id="container1">
+            <div class="row" id="forecast-row">
+                <ul class="list-group mt-3 col-2" id="city-list">
+                    <button type="button" class="list-group-item list-group-item-action mb-2 text-center">
+                        City 1
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 2</button>
+                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 3</button>
+                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 4</button>
+                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 5</button>
+                </ul>
+
+                <div id="forecast-display col">
+                    <!-- The width property is needed here to work with the container fluid property that allows the content to stretch across the screen, but overflows the area.  This limits the element to make it display on screen. -->
+                    <div class="row p-4 w-75">
+                        <div class="col text-center" id="current-weather">
+                            <!-- A card was inserted into the container -->
+                            <div class="card" style="width: 18rem;">
+                                <h5 class="card-title">Current Weather Conditions</h5>
+                                <img src="#" class="card-img-top" alt="icon goes here">
+                                <div class="card-body">
+
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Card Current Conditions -->
+
+                        <div class="col text-center" id="future1">
+                            <!-- Card 2 inserted here -->
+                            <div class="card" style="width: 18rem;">
+                                <h5 class="card-title">Tomorrow</h5>
+                                <img src="#" class="card-img-top" alt="icon goes here">
+                                <div class="card-body">
+
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                            <!-- End card 2 -->
+                        </div>
 
 
-        <ul class="list-group w-25 mt-3" id="city-list">
-            <button type="button" class="list-group-item list-group-item-action mb-2 text-center">
-                City 1
-            </button>
-            <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 2</button>
-            <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 3</button>
-            <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 4</button>
-            <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 5</button>
-        </ul>
+                        <div class="col text-center" id="future2">
+                            <!-- Card 3 inserted here -->
+                            <div class="card" style="width: 18rem;">
+                                <h5 class="card-title">Day 2</h5>
+                                <img src="#" class="card-img-top" alt="icon goes here">
+                                <div class="card-body">
 
-        <section class="container" id="forecast-display">
-            <div class="row w-100">
-                <div class="col text-center" id="current-weather">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                            <!-- End card 3 -->
+                        </div>
 
-                    <!-- A card was inserted into the container -->
-                    <div class="card" style="width: 18rem;">
-                        <h5 class="card-title">Current Weather Conditions</h5>
-                        <img src="#" class="card-img-top" alt="icon goes here">
-                        <div class="card-body">
+                        <div class="col text-center" id="future3">
+                            <!-- Card 4 inserted here -->
+                            <div class="card" style="width: 18rem;">
+                                <h5 class="card-title">Day 3</h5>
+                                <img src="#" class="card-img-top" alt="icon goes here">
+                                <div class="card-body">
 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                            <!-- End card 4 -->
                         </div>
                     </div>
-                </div>
-                <!-- End of Card Current Conditions -->
-
-                <div class="col text-center" id="future1">
-                    <!-- Card 2 inserted here -->
-                    <div class="card" style="width: 18rem;">
-                        <h5 class="card-title">Tomorrow</h5>
-                        <img src="#" class="card-img-top" alt="icon goes here">
-                        <div class="card-body">
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                    <!-- End card 2 -->
-                </div>
-
-
-                <div class="col text-center" id="future2">
-                    <!-- Card 3 inserted here -->
-                    <div class="card" style="width: 18rem;">
-                        <h5 class="card-title">Day 2</h5>
-                        <img src="#" class="card-img-top" alt="icon goes here">
-                        <div class="card-body">
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                    <!-- End card 3 -->
-                </div>
-
-                <div class="col text-center" id="future3">
-                    <!-- Card 4 inserted here -->
-                    <div class="card" style="width: 18rem;">
-                        <h5 class="card-title">Day 3</h5>
-                        <img src="#" class="card-img-top" alt="icon goes here">
-                        <div class="card-body">
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                    <!-- End card 4 -->
                 </div>
 
             </div>
-        </section>
-        
+        </div>
+    
 
     </main>
 

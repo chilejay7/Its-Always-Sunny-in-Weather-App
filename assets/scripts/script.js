@@ -90,7 +90,7 @@ for (let i=0; i < cityList[0].children.length; i++) {
 };
 
 
-// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and elminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
+// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
 cityList[0].addEventListener('click', function(e) {
    
     if (e.target.tagName === 'BUTTON') {
