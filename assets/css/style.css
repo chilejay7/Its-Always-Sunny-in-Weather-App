@@ -48,3 +48,20 @@ button {
     background-color: var(--color0);
     border-radius: .5em;
 }
+
+#forecast-row {
+    flex-wrap: nowrap;
+}
+
+/* ul{
+    width: 10%;
+    display: inline-block;
+} */
+
+/* section {
+    display: inline-block;
+} */
+
+/* #main {
+    margin: 0;
+} */
