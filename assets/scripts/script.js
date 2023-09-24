@@ -11,7 +11,7 @@ const forecastDisplay = $('#forecast-display');
 
 // This is a submit event listener on the search form.
 searchForm.on('submit', function (e) {
-    console.log(e);
+    console.log(e.target);
 
     // This prevents the default behavior on executing the search function where the form will try to trigger the action attribute.
     e.preventDefault();
@@ -80,11 +80,20 @@ $(function () {
 
 
 // To make this work an array will probably be needed.  It will start empty and need to be written to local storage.  The basic functionality has been tested and does work.  
-const citySearchBtns = $('#city-list');
+const cityList = $('#city-list');
 const searchedCities = [];
 
 createCityButtons = () => {
-for (let i=0; i < citySearchBtns[0].children.length; i++) {
-    citySearchBtns[0].children[i].innerText = searchedCities[i]
+for (let i=0; i < cityList[0].children.length; i++) {
+    // cityList[0].children[i].innerText = searchedCities[i]
 }
-}
+};
+
+
+// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and elminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
+cityList[0].addEventListener('click', function(e) {
+   
+    if (e.target.tagName === 'BUTTON') {
+        console.log(e.target.innerText);
+    }
+});
