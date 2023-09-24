@@ -26,6 +26,8 @@ searchForm.on('submit', function (e) {
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
     searchedCities.push(inputCity);
     // displayForecast(getWeather);
+
+    createCityButtons();
     
     // This clears the input field after searching.
     searchInput.val('');
@@ -58,6 +60,27 @@ getWeather = (city) => {
 //     console.log(data);
 // }
 
+// To make this work an array will be needed.  It will start empty and need to be written to local storage.  The basic functionality has been tested and does work.  The array's values are updated with a push of the search input in the submit form's event listener.
+const cityList = $('#city-list');
+const searchedCities = [];
+
+createCityButtons = () => {
+for (let i=0; i < cityList[0].children.length; i++) {
+    cityList[0].children[i].innerText = searchedCities[i]
+}
+};
+
+
+// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
+cityList[0].addEventListener('click', function(e) {
+       if (e.target.tagName === 'BUTTON') {
+        console.log(e.target.innerText);
+
+        // This calls the same getWeather function defined earlier to be used within the submit form listener.  The function was designed for resuse by adding the city argument.  That arguemnt is what allows the event target's inner text to be passed to the API call here.
+        getWeather(e.target.innerText);
+    }
+});
+
 
 displayForecast = (fnc) => {
     fnc();
@@ -77,23 +100,3 @@ $(function () {
 // $(function () {
 //     $("#city-list").sortable();
 // });
-
-
-// To make this work an array will probably be needed.  It will start empty and need to be written to local storage.  The basic functionality has been tested and does work.  
-const cityList = $('#city-list');
-const searchedCities = [];
-
-createCityButtons = () => {
-for (let i=0; i < cityList[0].children.length; i++) {
-    // cityList[0].children[i].innerText = searchedCities[i]
-}
-};
-
-
-// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
-cityList[0].addEventListener('click', function(e) {
-   
-    if (e.target.tagName === 'BUTTON') {
-        console.log(e.target.innerText);
-    }
-});
