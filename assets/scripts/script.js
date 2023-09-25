@@ -1,6 +1,7 @@
 const currentTime = dayjs();
 const searchForm = $('#search-form');
-const autoCompleteList = ['Denver', 'Granville', 'Lawrence', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser']
+const autoCompleteList = ['Denver', 'Granville', 'Lawrence', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser', 'Madison']
+const currentTemp = $('#display-current-weather .card-title')
 // const searchForm = document.getElementById('search-form');
 
 const searchInput = $('#city-input');
@@ -18,7 +19,7 @@ searchForm.on('submit', function (e) {
 
     // This saves the input entered into the search input to allow city names searched to be saved for later use.
     let inputCity = searchInput.val();
-    console.log(inputCity);
+    // console.log(inputCity);
 
     // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
     getWeather(inputCity, currentForecast);
@@ -43,7 +44,7 @@ searchForm.on('submit', function (e) {
 
 
 // This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added. These will be used to call the functions that populate forecast data into the cards. This function is called in the submit event listener and the city list function.
-getWeather = (city, fnc1) => {
+getWeather = (city, current, weather1, weather2, weather3, weather4) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
             console.log(response);
@@ -53,7 +54,7 @@ getWeather = (city, fnc1) => {
             console.log(data)
 
             // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
-            fnc1();
+            current(data);
         });
 }
 
@@ -73,7 +74,6 @@ for (let i=0; i < cityList[0].children.length; i++) {
 }
 };
 
-
 // The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
 cityList[0].addEventListener('click', function(e) {
        if (e.target.tagName === 'BUTTON') {
@@ -85,9 +85,9 @@ cityList[0].addEventListener('click', function(e) {
 });
 
 
-currentForecast = () => {
-    console.log('current forecast is working')
-
+currentForecast = (data) => {
+    console.log(data.city.name);
+    currentTemp[0].innerText = data.city.name
 }
 
 // This function adds an autocomplete menu for various cities using the jQuery UI.  The source references the autoComplete list array created at the beginning of the script.

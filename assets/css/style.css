@@ -20,9 +20,11 @@
 header {
     background-image: url('../images/hanging_leaves.jpg');
     background-size: cover;
-    color: var(--color2);
+    /* color: var(--color2); */
+    color: white;
     text-align: center;
     border-radius: .5em;
+    /* -webkit-text-stroke: .5px black; */
 }
 
 body {
