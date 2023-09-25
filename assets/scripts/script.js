@@ -1,7 +1,6 @@
 const currentTime = dayjs();
 const searchForm = $('#search-form');
 const autoCompleteList = ['Denver', 'Granville', 'Lawrence', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser', 'Madison']
-const currentTemp = $('#display-current-weather .card-title')
 // const searchForm = document.getElementById('search-form');
 
 const searchInput = $('#city-input');
@@ -86,8 +85,15 @@ cityList[0].addEventListener('click', function(e) {
 
 
 currentForecast = (data) => {
+    const cityName = $('#display-current-weather .card-title');
+    const currentTemp = $('#display-current-weather .current');
+    const currentHigh = $('#display-current-weather .high');
+    const currentLow = $('#display-current-weather .low');
     console.log(data.city.name);
-    currentTemp[0].innerText = data.city.name
+    cityName[0].innerText = data.city.name;
+    currentTemp[0].innerText = `Currently: ${data.list[0].main.temp}`
+    currentHigh[0].innerText = `Today's High: ${data.list[0].main.temp_max}`;
+    currentLow[0].innerText = `Today's Low: ${data.list[0].main.temp_min}`;    
 }
 
 // This function adds an autocomplete menu for various cities using the jQuery UI.  The source references the autoComplete list array created at the beginning of the script.
