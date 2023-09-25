@@ -85,6 +85,12 @@ button {
 .feels-like {
     font-weight: bold;
 }
+
+.city-name {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
 /* #forecast-row {
     flex-wrap: nowrap;
 } */
