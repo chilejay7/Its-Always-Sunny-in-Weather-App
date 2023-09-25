@@ -86,12 +86,14 @@ cityList[0].addEventListener('click', function(e) {
 // This function sets the forecast for current weather conditions in the location requested.
 currentForecast = (data) => {
     const cityName = $('#display-current-weather .card-title');
+    const currentConditions = $('#display-current-weather .description');
     const currentTemp = $('#display-current-weather .current');
     const currentHigh = $('#display-current-weather .high');
     const currentLow = $('#display-current-weather .low');
     console.log(data.city.name);
     cityName[0].innerText = data.city.name;
-    currentTemp[0].innerText = `Currently: ${data.list[0].main.temp}`
+    currentConditions[0].innerText = data.list[0].weather[0].description;
+    currentTemp[0].innerText = `Currently: ${data.list[0].main.temp}`;
     currentHigh[0].innerText = `Today's High: ${data.list[0].main.temp_max}`;
     currentLow[0].innerText = `Today's Low: ${data.list[0].main.temp_min}`;    
 }
