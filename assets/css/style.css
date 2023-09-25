@@ -81,7 +81,8 @@ button {
     border-radius: .5em;
 }
 
-.current, .high, .low {
+.current, .high, .low,
+.feels-like {
     font-weight: bold;
 }
 /* #forecast-row {
