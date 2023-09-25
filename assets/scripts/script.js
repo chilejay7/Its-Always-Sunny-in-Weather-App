@@ -103,7 +103,10 @@ cityList[0].addEventListener('click', function(e) {
 
 // This function sets the forecast for current weather conditions in the location requested.
 currentForecast = (data) => {
-    const cityName = $('#display-current-weather .card-title');
+    // const cityName = $('#display-current-weather .card-title');
+    const cityName = $('.city-name');
+    const iconDisplay = $('#display-current-weather .icon');
+    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     const currentConditions = $('#display-current-weather .description');
     const feelsLike = $('#display-current-weather .feels-like');
     const currentTemp = $('#display-current-weather .current');
@@ -112,6 +115,7 @@ currentForecast = (data) => {
     // console.log(data.name);
     cityName[0].innerText = data.name;
     currentConditions[0].innerText = data.weather[0].description;
+    iconDisplay[0].src = iconUrl;
     currentTemp[0].innerText = `Currently: ${Math.round(data.main.temp)}`;
     feelsLike[0].innerText = `Feels Like: ${Math.round(data.main.feels_like)}`
     currentHigh[0].innerText = `Today's High: ${Math.round(data.main.temp_max)}`;
@@ -120,7 +124,7 @@ currentForecast = (data) => {
 
 // This will be used to write data to the extended five day forecast cards.
 extendedForecast = (data) => {
-    const cityName = $('#display-current-weather .card-title');
+    // const cityName = $('#display-current-weather .card-title');
     const currentConditions = $('#display-current-weather .description');
     const currentTemp = $('#display-current-weather .current');
     const currentHigh = $('#display-current-weather .high');
@@ -144,3 +148,11 @@ $(function () {
 // $(function () {
 //     $("#city-list").sortable();
 // });
+
+// Icon list
+// 200-299 = 11d
+// 300-399 || 520-531 = 09d
+// 500-504 = 10d
+// 511 || 600-622 = 13d
+// 701-781 = 50d
+
