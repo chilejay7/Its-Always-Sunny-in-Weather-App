@@ -18,13 +18,15 @@
 }
 
 header {
-    background-color: var(--color0);
+    background-image: url('../images/hanging_leaves.jpg');
+    background-size: cover;
+    color: var(--color2);
     text-align: center;
     border-radius: .5em;
 }
 
 body {
-    background-color: var(--color7);
+    background-color: var(--color9);
 }
 
 form {
@@ -49,6 +51,12 @@ button {
     border-radius: .5em;
 }
 
+
+.container-fluid {
+    background-image: url(../images/mushroom.jpg);
+    background-size: cover;
+    border-radius: .5em;
+}
 /* #forecast-row {
     flex-wrap: nowrap;
 } */
