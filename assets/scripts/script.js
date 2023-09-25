@@ -83,7 +83,7 @@ cityList[0].addEventListener('click', function(e) {
     }
 });
 
-
+// This function sets the forecast for current weather conditions in the location requested.
 currentForecast = (data) => {
     const cityName = $('#display-current-weather .card-title');
     const currentTemp = $('#display-current-weather .current');

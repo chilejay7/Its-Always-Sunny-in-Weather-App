@@ -18,13 +18,32 @@
 }
 
 header {
-    background-image: url('../images/hanging_leaves.jpg');
-    background-size: cover;
+    /* background-image: url('../images/hanging_leaves.jpg');
+    background-size: cover; */
     /* color: var(--color2); */
-    color: white;
-    text-align: center;
+    /* color: white;
+    text-align: center; */
     border-radius: .5em;
     /* -webkit-text-stroke: .5px black; */
+    position: relative;
+}
+
+header::before {
+    content: '';
+    background-image: url('../images/hanging_leaves.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .8;   
+}
+
+h1 {
+    position: relative;
+    color: white;
+    text-align: center;
 }
 
 body {
@@ -32,8 +51,10 @@ body {
 }
 
 form {
+    position: relative;
     margin: 10px;
     font-weight: bold;
+    color: white;
     font-size: 1.2rem;
 }
 
