@@ -80,6 +80,10 @@ button {
     background-size: cover;
     border-radius: .5em;
 }
+
+.current, .high, .low {
+    font-weight: bold;
+}
 /* #forecast-row {
     flex-wrap: nowrap;
 } */
