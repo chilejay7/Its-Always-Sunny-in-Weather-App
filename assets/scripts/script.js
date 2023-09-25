@@ -42,7 +42,7 @@ searchForm.on('submit', function (e) {
 // })
 
 
-// This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added as arguments. These will be used to call the functions that poulate forecast data into the cards. This function is called in the submit event listener and the city list function.
+// This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added. These will be used to call the functions that populate forecast data into the cards. This function is called in the submit event listener and the city list function.
 getWeather = (city, fnc1) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
