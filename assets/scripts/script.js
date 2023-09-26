@@ -21,6 +21,7 @@ searchForm.on('submit', function (e) {
     let inputCity = searchInput.val();
     // console.log(inputCity);
 
+    // The inputCity will provide the value from the search input to complete the API's url.  The currentForecast function is provided as an argument as defined in the getCurrentWeather function as "current" to retrieve the weather data required and write it to the display.
     getCurrentWeather(inputCity, currentForecast);
 
     // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
@@ -60,7 +61,7 @@ getCurrentWeather = (city, current) => {
     });
 }
 // This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added. These will be used to call the functions that populate forecast data into the cards. This function is called in the submit event listener and the city list function.
-getWeather = (city, weather1, weather2, weather3, weather4) => {
+getWeather = (city, weather1, weather2, weather3, weather4, weather5) => {
    
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
@@ -71,7 +72,12 @@ getWeather = (city, weather1, weather2, weather3, weather4) => {
             console.log(data)
 
             // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
-            // current(data);
+            weather1(data);
+            weather2(data);
+            weather3(data);
+            weather4(data);
+            weather5(data);
+            
         });
 }
 
@@ -123,15 +129,15 @@ currentForecast = (data) => {
 }
 
 // This will be used to write data to the extended five day forecast cards.
-extendedForecast = (data) => {
+forecastDay1 = (data) => {
     // const cityName = $('#display-current-weather .card-title');
-    const currentConditions = $('#display-current-weather .description');
+    const conditions = $('#display-current-weather .description');
     const currentTemp = $('#display-current-weather .current');
     const currentHigh = $('#display-current-weather .high');
     const currentLow = $('#display-current-weather .low');
     console.log(data.city.name);
     cityName[0].innerText = data.city.name;
-    currentConditions[0].innerText = data.list[0].weather[0].description;
+    conditions[0].innerText = data.list[0].weather[0].description;
     currentTemp[0].innerText = `Currently: ${Math.round(data.list[0].main.temp)}`;
     currentHigh[0].innerText = `Today's High: ${data.list[0].main.temp_max}`;
     currentLow[0].innerText = `Today's Low: ${data.list[0].main.temp_min}`;    
