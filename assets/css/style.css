@@ -81,8 +81,9 @@ button {
     border-radius: .5em;
 }
 
-.current, .high, .low,
-.feels-like {
+/* .current, .high, .low,
+.feels-like, .description*/
+.card {
     font-weight: bold;
 }
 
