@@ -10,34 +10,6 @@ const searchInput = $('#city-input');
 
 const forecastDisplay = $('#forecast-display');
 
-// This is a submit event listener on the search form.
-searchForm.on('submit', function (e) {
-    console.log(e.target);
-
-    // This prevents the default behavior on executing the search function where the form will try to trigger the action attribute.
-    e.preventDefault();
-
-    // This saves the input entered into the search input to allow city names searched to be saved for later use.
-    let inputCity = searchInput.val();
-    // console.log(inputCity);
-
-    // The inputCity will provide the value from the search input to complete the API's url.  The currentForecast function is provided as an argument as defined in the getCurrentWeather function as "current" to retrieve the weather data required and write it to the display.
-    getCurrentWeather(inputCity, currentForecast);
-
-    // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
-    getForecast(inputCity, forecastDays);
-
-    // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
-    searchedCities.push(inputCity);
-    // displayForecast(getWeather);
-
-    createCityButtons();
-    
-    // This clears the input field after searching.
-    searchInput.val('');
-
-
-})
 
 // This code has been commented out but left as it creates a submit event listener, but uses syntax that is not jQuery.  It represents another method of acheiving the same end as the jQuery listener above.
 // searchForm.addEventListener('submit', function (e) {
@@ -137,13 +109,16 @@ forecastDays = (data) => {
         // let low = $(`#day${i} .low`);
         let humidity = $(`#day${i} .humidity`);
         let wind = $(`#day${i} .wind-speed`);
-        
+        let icon = `https://openweathermap.org/img/wn/${data.list[i+6].weather[0].icon}.png`
+
         // console.log(i+3);
 
-        temp[0].innerText = `High: ${Math.round(data.list[i+3].main.temp_max)} °F`;
+        temp[0].innerText = `High: ${Math.round(data.list[i+6].main.temp_max)} °F`;
+        // This was removed from the application since data returned from the server does not display high low temp information within the same array for future data.
         // low[0].innerText = `Low: ${Math.round(data.list[i+3].main.temp_min)} °F`;
-        humidity[0].innerText = `Humidity: ${data.list[i+3].main.humidity} %`;
-        wind[0].innerText = `Wind: ${data.list[i+3].wind.speed} mph`;
+        humidity[0].innerText = `Humidity: ${data.list[i+6].main.humidity} %`;
+        wind[0].innerText = `Wind: ${data.list[i+6].wind.speed} mph`;
+        $(`#day${i} .icon`)[0].src = icon
     }
 }
 
@@ -154,6 +129,36 @@ $(function () {
         source: autoCompleteList,
     })
 });
+
+// This is a submit event listener on the search form.
+searchForm.on('submit', function (e) {
+    console.log(e.target);
+
+    // This prevents the default behavior on executing the search function where the form will try to trigger the action attribute.
+    e.preventDefault();
+
+    // This saves the input entered into the search input to allow city names searched to be saved for later use.
+    let inputCity = searchInput.val();
+    // console.log(inputCity);
+
+    // The inputCity will provide the value from the search input to complete the API's url.  The currentForecast function is provided as an argument as defined in the getCurrentWeather function as "current" to retrieve the weather data required and write it to the display.
+    getCurrentWeather(inputCity, currentForecast);
+
+    // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
+    getForecast(inputCity, forecastDays);
+
+    // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
+    searchedCities.push(inputCity);
+    // displayForecast(getWeather);
+
+    createCityButtons();
+    
+    // This clears the input field after searching.
+    searchInput.val('');
+
+
+})
+
 
 // This would allow for a sortable list of cities.
 // $(function () {
