@@ -74,13 +74,19 @@ button {
     border-radius: .5em;
 }
 
-
 .container-fluid {
     background-image: url(../images/mushroom.jpg);
     background-size: cover;
     border-radius: .5em;
 }
 
+img {
+   display:inline-block;
+}
+
+.description {
+    display:inline-block;
+}
 /* .current, .high, .low,
 .feels-like, .description*/
 .card {
