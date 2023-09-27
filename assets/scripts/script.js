@@ -92,22 +92,28 @@ currentForecast = (data) => {
 // This function writes data for the extended forecast.
 forecastDays = (data) => {
     const days = $('.future');
+    let dayCounter = 6;
 
     for (let i = 1; i < days.length + 1; i++) {
         let temp = $(`#day${i} .high`);
         // let low = $(`#day${i} .low`);
         let humidity = $(`#day${i} .humidity`);
         let wind = $(`#day${i} .wind-speed`);
-        let icon = `https://openweathermap.org/img/wn/${data.list[i+6].weather[0].icon}.png`
+        let date = data.list[dayCounter].dt_txt
+        let icon = `https://openweathermap.org/img/wn/${data.list[dayCounter].weather[0].icon}.png`
 
         // console.log(i+3);
 
-        temp[0].innerText = `High: ${Math.round(data.list[i+6].main.temp_max)} °F`;
+        temp[0].innerText = `High: ${Math.round(data.list[dayCounter].main.temp_max)} °F`;
         // This was removed from the application since data returned from the server does not display different values fo high and low temp information within the same array for future data.
         // low[0].innerText = `Low: ${Math.round(data.list[i+3].main.temp_min)} °F`;
-        humidity[0].innerText = `Humidity: ${data.list[i+6].main.humidity} %`;
-        wind[0].innerText = `Wind: ${data.list[i+6].wind.speed} mph`;
-        $(`#day${i} .icon`)[0].src = icon
+        humidity[0].innerText = `Humidity: ${data.list[dayCounter].main.humidity} %`;
+        wind[0].innerText = `Wind: ${data.list[dayCounter].wind.speed} mph`;
+        $(`#day${i} .icon`)[0].src = icon;
+        $(`#day${i} .card-title`)[0].innerText = dayjs(date).format('ddd, MMM DD');
+
+        console.log(dayCounter);
+        dayCounter += 7;
     }
 }
 
@@ -165,5 +171,12 @@ cityList[0].addEventListener('click', function(e) {
 //     $("#city-list").sortable();
 // });
 
+test = () => {
+    const days = $('.future');
+    let dayCounter = 6;
 
-
+    for (let i = 1; i < days.length + 1; i++) {
+        console.log(dayCounter);
+        dayCounter += 5;
+    }
+}
