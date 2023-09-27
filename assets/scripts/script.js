@@ -45,7 +45,6 @@ getForecast = (city, forecastFunc) => {
 
             // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
             forecastFunc(data);
-            
         });
 }
 
@@ -64,16 +63,6 @@ for (let i=0; i < cityList[0].children.length; i++) {
     cityList[0].children[i].innerText = searchedCities[i]
 }
 };
-
-// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
-cityList[0].addEventListener('click', function(e) {
-       if (e.target.tagName === 'BUTTON') {
-        console.log(e.target.innerText);
-
-        // This calls the same getWeather function defined earlier to be used within the submit form listener.  The function was designed for reuse by adding the city argument.  That argument is what allows the event target's inner text to be passed to the API call here.
-        getCurrentWeather(e.target.innerText, currentForecast);
-    }
-});
 
 // This function sets the forecast for current weather conditions in the location requested.  It would be a good idea to dynamically populate the alt image attribute text with the description to improve accessibility when the application is finalized for release.
 currentForecast = (data) => {
@@ -114,7 +103,7 @@ forecastDays = (data) => {
         // console.log(i+3);
 
         temp[0].innerText = `High: ${Math.round(data.list[i+6].main.temp_max)} °F`;
-        // This was removed from the application since data returned from the server does not display high low temp information within the same array for future data.
+        // This was removed from the application since data returned from the server does not display different values fo high and low temp information within the same array for future data.
         // low[0].innerText = `Low: ${Math.round(data.list[i+3].main.temp_min)} °F`;
         humidity[0].innerText = `Humidity: ${data.list[i+6].main.humidity} %`;
         wind[0].innerText = `Wind: ${data.list[i+6].wind.speed} mph`;
@@ -158,6 +147,17 @@ searchForm.on('submit', function (e) {
 
 
 })
+
+// The idea of this listener is extremely important. The listener is added to the parent ul element and listens for events on buttons that are children.  It takes advantage of the concept of event bubbling and eliminates what would be repetitious code to add listeners to all buttons.  This allows for dynamic creation of button elements within this parent and will automatically listen on elements added.  This will be used to recall forecast data related to cities previously searched.  It's important to remember it's an array of objects and requires the index to use the listener without an error.
+cityList[0].addEventListener('click', function(e) {
+    if (e.target.tagName === 'BUTTON') {
+     console.log(e.target.innerText);
+
+     // This calls the same getWeather function defined earlier to be used within the submit form listener.  The function was designed for reuse by adding the city argument.  That argument is what allows the event target's inner text to be passed to the API call here.
+     getCurrentWeather(e.target.innerText, currentForecast);
+     getForecast(e.target.innerText, forecastDays)
+ }
+});
 
 
 // This would allow for a sortable list of cities.
