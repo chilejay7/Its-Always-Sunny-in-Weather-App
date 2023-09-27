@@ -72,11 +72,11 @@ getWeather = (city, weather1, weather2, weather3, weather4, weather5) => {
             console.log(data)
 
             // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
-            weather1(data);
-            weather2(data);
-            weather3(data);
-            weather4(data);
-            weather5(data);
+            // weather1(data);
+            // weather2(data);
+            // weather3(data);
+            // weather4(data);
+            // weather5(data);
             
         });
 }
@@ -109,10 +109,12 @@ cityList[0].addEventListener('click', function(e) {
 
 // This function sets the forecast for current weather conditions in the location requested.
 currentForecast = (data) => {
-    // const cityName = $('#display-current-weather .card-title');
-    const cityName = $('.city-name');
-    const iconDisplay = $('#display-current-weather .icon');
-    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    const cityName = $('#display-current-weather .card-title');
+    // const cityName = $('.city-name');
+    const currentDate = $('#display-current-weather .date-time')
+    const iconDisplay = $('#display-current-weather img');
+    // const iconDisplay = $('#icon-current')
+    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
     const currentConditions = $('#display-current-weather .description');
     const feelsLike = $('#display-current-weather .feels-like');
     const currentTemp = $('#display-current-weather .current');
@@ -120,6 +122,7 @@ currentForecast = (data) => {
     const currentLow = $('#display-current-weather .low');
     // console.log(data.name);
     cityName[0].innerText = data.name;
+    currentDate[0].innerText = dayjs().format('ddd, MMM DD h:mm a');
     currentConditions[0].innerText = data.weather[0].description;
     iconDisplay[0].src = iconUrl;
     currentTemp[0].innerText = `Currently: ${Math.round(data.main.temp)}`;
