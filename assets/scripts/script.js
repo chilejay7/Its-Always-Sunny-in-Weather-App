@@ -139,7 +139,7 @@ searchForm.on('submit', function (e) {
     // The inputCity will provide the value from the search input to complete the API's url.  The currentForecast function is provided as an argument as defined in the getCurrentWeather function as "current" to retrieve the weather data required and write it to the display.
     getCurrentWeather(inputCity, currentForecast);
 
-    // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
+    // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.  This was separated from the getCurrentWeather function because the API url is different.
     getForecast(inputCity, forecastDays);
 
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
