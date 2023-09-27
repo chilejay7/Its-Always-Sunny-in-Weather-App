@@ -80,8 +80,10 @@ button {
     border-radius: .5em;
 }
 
-img {
-   display:inline-block;
+.icon {
+   display: inline-block;
+   width: 50; 
+   height: 50;
 }
 
 .description {

@@ -25,7 +25,7 @@ searchForm.on('submit', function (e) {
     getCurrentWeather(inputCity, currentForecast);
 
     // This calls the getWeather function to make the API call and uses the city searched for in the input field to pull the forecast data.
-    getWeather(inputCity);
+    getForecast(inputCity, forecastDays);
 
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
     searchedCities.push(inputCity);
@@ -61,7 +61,7 @@ getCurrentWeather = (city, current) => {
     });
 }
 // This function calls fetches data related to the city searched from the Open Weather API.  A city argument can be passed to reuse the fetch.  Addtional arguemnts designating functions have been added. These will be used to call the functions that populate forecast data into the cards. This function is called in the submit event listener and the city list function.
-getWeather = (city, weather1, weather2, weather3, weather4, weather5) => {
+getForecast = (city, forecastFunc) => {
    
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
         .then(function (response) {
@@ -72,11 +72,7 @@ getWeather = (city, weather1, weather2, weather3, weather4, weather5) => {
             console.log(data)
 
             // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
-            // weather1(data);
-            // weather2(data);
-            // weather3(data);
-            // weather4(data);
-            // weather5(data);
+            forecastFunc(data);
             
         });
 }
@@ -107,7 +103,7 @@ cityList[0].addEventListener('click', function(e) {
     }
 });
 
-// This function sets the forecast for current weather conditions in the location requested.
+// This function sets the forecast for current weather conditions in the location requested.  It would be a good idea to dynamically populate the alt image attribute text with the description to improve accessibility when the application is finalized for release.
 currentForecast = (data) => {
     const cityName = $('#display-current-weather .card-title');
     // const cityName = $('.city-name');
@@ -125,26 +121,32 @@ currentForecast = (data) => {
     currentDate[0].innerText = dayjs().format('ddd, MMM DD h:mm a');
     currentConditions[0].innerText = data.weather[0].description;
     iconDisplay[0].src = iconUrl;
-    currentTemp[0].innerText = `Currently: ${Math.round(data.main.temp)}`;
-    feelsLike[0].innerText = `Feels Like: ${Math.round(data.main.feels_like)}`
-    currentHigh[0].innerText = `Today's High: ${Math.round(data.main.temp_max)}`;
-    currentLow[0].innerText = `Today's Low: ${Math.round(data.main.temp_min)}`;    
+    currentTemp[0].innerText = `Currently: ${Math.round(data.main.temp)} °F`;
+    feelsLike[0].innerText = `Feels Like: ${Math.round(data.main.feels_like)} °F`
+    currentHigh[0].innerText = `Today's High: ${Math.round(data.main.temp_max)} °F`;
+    currentLow[0].innerText = `Today's Low: ${Math.round(data.main.temp_min)} °F`;
+    $('#display-current-weather .wind-speed')[0].innerText = `Wind: ${data.wind.speed} mph` 
 }
 
-// This will be used to write data to the extended five day forecast cards.
-forecastDay1 = (data) => {
-    // const cityName = $('#display-current-weather .card-title');
-    const conditions = $('#display-current-weather .description');
-    const currentTemp = $('#display-current-weather .current');
-    const currentHigh = $('#display-current-weather .high');
-    const currentLow = $('#display-current-weather .low');
-    console.log(data.city.name);
-    cityName[0].innerText = data.city.name;
-    conditions[0].innerText = data.list[0].weather[0].description;
-    currentTemp[0].innerText = `Currently: ${Math.round(data.list[0].main.temp)}`;
-    currentHigh[0].innerText = `Today's High: ${data.list[0].main.temp_max}`;
-    currentLow[0].innerText = `Today's Low: ${data.list[0].main.temp_min}`;    
+// This function writes data for the extended forecast.
+forecastDays = (data) => {
+    const days = $('.future');
+
+    for (let i = 1; i < days.length + 1; i++) {
+        let temp = $(`#day${i} .high`);
+        // let low = $(`#day${i} .low`);
+        let humidity = $(`#day${i} .humidity`);
+        let wind = $(`#day${i} .wind-speed`);
+        
+        // console.log(i+3);
+
+        temp[0].innerText = `High: ${Math.round(data.list[i+3].main.temp_max)} °F`;
+        // low[0].innerText = `Low: ${Math.round(data.list[i+3].main.temp_min)} °F`;
+        humidity[0].innerText = `Humidity: ${data.list[i+3].main.humidity} %`;
+        wind[0].innerText = `Wind: ${data.list[i+3].wind.speed} mph`;
+    }
 }
+
 
 // This function adds an autocomplete menu for various cities using the jQuery UI.  The source references the autoComplete list array created at the beginning of the script.
 $(function () {
@@ -158,10 +160,5 @@ $(function () {
 //     $("#city-list").sortable();
 // });
 
-// Icon list
-// 200-299 = 11d
-// 300-399 || 520-531 = 09d
-// 500-504 = 10d
-// 511 || 600-622 = 13d
-// 701-781 = 50d
+
 
