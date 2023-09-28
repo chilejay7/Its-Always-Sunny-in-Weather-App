@@ -27,7 +27,7 @@
         <h1>Local Weather Forecast</h1>
         <form action="https://api.openweathermap.org/data/2.5/weather?" id="search-form" class="text-start">
             <label for="city-input">Search for a City:</label>
-            <input type="search" placeholder="City" id="city-input" name="q">
+            <input type="search" placeholder="City" id="city-input" name="q" >
             <button id="search-btn">Search</button>
         </form>
     </header>
@@ -62,7 +62,7 @@
                             <div class="col text-center forecast-card" id="display-current-weather">
                                 <!-- A card was inserted into the container -->
                                 <!-- The size of this card was changed from the default of 18rem to make the current weather display larger. -->
-                                <div class="card" style="width: 75rem;">
+                                <div class="card" style="width: 100%;">
                                     <h3 class="card-title">Current Weather Conditions</h3>
                                     <p class="date-time"></p>
                                     <span><img class="icon" src=""></span>
@@ -90,7 +90,7 @@
             </section>
 
             <section>
-                <div class="row">
+                <div class="row justify-content-center">
                 <div class="col-xl-2 text-center future" id="day1">
                     <!-- Card 2 inserted here -->
                     <div class="card" style="width: 18rem;">
