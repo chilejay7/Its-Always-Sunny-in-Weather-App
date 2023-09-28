@@ -80,6 +80,10 @@ button {
     border-radius: .5em;
 }
 
+#city-input {
+    border-radius: .8em;
+}
+
 .icon {
    display: inline-block;
    width: 50; 

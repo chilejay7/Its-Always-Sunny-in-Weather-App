@@ -27,7 +27,7 @@
         <h1>Local Weather Forecast</h1>
         <form action="https://api.openweathermap.org/data/2.5/weather?" id="search-form" class="text-start">
             <label for="city-input">Search for a City:</label>
-            <input type="search" placeholder="City" id="city-input" name="q">
+            <input type="search" placeholder="City" id="city-input" name="q" >
             <button id="search-btn">Search</button>
         </form>
     </header>
@@ -36,147 +36,161 @@
         <!-- The container fluid class had to be added here to allow the content to display across the full width of the viewport. -->
         <div class="container-fluid m-0" id="container1">
 
-            <!-- No wrap was set on the row to allow both the list and the buttons to display within the same line on medium screens and above.  On smaller screens the elements will wrap to a new line. -->
-            <div class="row flex-lg-nowrap" id="forecast-row">
+            <section>
+                <!-- No wrap was set on the row to allow both the list and the buttons to display within the same line on medium screens and above.  On smaller screens the elements will wrap to a new line. -->
+                <div class="row flex-lg-nowrap" id="forecast-row">
 
-                <!-- The columns were set to use medium two here to set them to only two columns on screens medium size and above.  On smaller screens it will break to display the full width of the screen. -->
-                <ul class="list-group mt-3 ms-2 align-middlecol-lg-2 col-lg-2" id="city-list">
-                    <button type="button" class="list-group-item list-group-item-action mb-2 text-center">
-                        City 1
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 2</button>
-                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 3</button>
-                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 4</button>
-                    <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City 5</button>
-                </ul>
+                    <!-- The columns were set to use medium two here to set them to only two columns on screens medium size and above.  On smaller screens it will break to display the full width of the screen. -->
+                    <ul class="list-group mt-3 ms-2 align-middlecol-lg-2 col-lg-2" id="city-list">
+                        <button type="button" class="list-group-item list-group-item-action mb-2 text-center">
+                            City 1
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City
+                            2</button>
+                        <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City
+                            3</button>
+                        <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City
+                            4</button>
+                        <button type="button" class="list-group-item list-group-item-action mt-2 mb-2 text-center">City
+                            5</button>
+                    </ul>
 
-                <div id="forecast-display col">
-                    <!-- <h2 class="city-name text-center">Name of City</h2> -->
-                    <!-- The width property is needed here to work with the container fluid property that allows the content to stretch across the screen, but overflows the area.  This limits the element to make it display on screen. -->
-                    <div class="row p-4 w-75">
-                        <div class="col text-center forecast-card" id="display-current-weather">
-                            <!-- A card was inserted into the container -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Current Weather Conditions</h3>
-                                <p class="date-time"></p>
-                                <span><img class="icon" src=""></span>
-                                <p class="description"></p>
-                                
-                                
-                                <div class="card-body">
-                                    <p class="current"></p>
-                                    <p class="feels-like"></p>
-                                    <p class="high"></p>
-                                    <p class="low"></p>
-                                    <p class="wind-speed"></p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Card Current Conditions -->
+                    <div id="forecast-display col">
+                        <!-- <h2 class="city-name text-center">Name of City</h2> -->
+                        <!-- The width property is needed here to work with the container fluid property that allows the content to stretch across the screen, but overflows the area.  This limits the element to make it display on screen. -->
+                        <div class="row p-4 w-75">
+                            <div class="col text-center forecast-card" id="display-current-weather">
+                                <!-- A card was inserted into the container -->
+                                <!-- The size of this card was changed from the default of 18rem to make the current weather display larger. -->
+                                <div class="card" style="width: 100%;">
+                                    <h3 class="card-title">Current Weather Conditions</h3>
+                                    <p class="date-time"></p>
+                                    <span><img class="icon" src=""></span>
+                                    <p class="description"></p>
 
-                        <div class="col-xl-4 text-center future" id="day1">
-                            <!-- Card 2 inserted here -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Tomorrow</h3>
-                                                                
-                                <div class="card-body">
-                                    <img class="icon" src="">
 
-                                    <p class="card-text"></p>
+                                    <div class="card-body">
+                                        <p class="current"></p>
+                                        <p class="feels-like"></p>
                                         <p class="high"></p>
-                                        <!-- <p class="low"></p> -->
-                                        <p class="humidity"></p>
+                                        <p class="low"></p>
                                         <p class="wind-speed"></p>
+
+                                    </div>
                                 </div>
                             </div>
-                            <!-- End card 2 -->
+                            <!-- End of Card Current Conditions -->
+
+
+
                         </div>
-
-
-                        <div class="col-xl-4 text-center future" id="day2">
-                            <!-- Card 3 inserted here -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Day 3</h3>
-
-                                
-                                <div class="card-body">
-                                    <img class="icon" src="">
-
-                                    <p class="card-text"></p>
-                                        <p class="high"></p>
-                                        <!-- <p class="low"></p> -->
-                                        <p class="humidity"></p>
-                                        <p class="wind-speed"></p>
-                                    
-                                </div>
-                            </div>
-                            <!-- End card 3 -->
-                        </div>
-
-                        <div class="col-xl-4 text-center future" id="day3">
-                            <!-- Card 4 inserted here -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Day 4</h3>
-                                
-                                <div class="card-body">
-                                    <img class="icon" src="">
-
-                                    <p class="card-text"></p>
-                                        <p class="high"></p>
-                                        <!-- <p class="low"></p> -->
-                                        <p class="humidity"></p>
-                                        <p class="wind-speed"></p>
-                                    
-                                </div>
-                            </div>
-                            <!-- End card 4 -->
-                        </div>
-
-                        <div class="col-xl-4 text-center future" id="day4">
-                            <!-- Card 4 inserted here -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Day 5</h3>
-                                
-                                <div class="card-body">
-                                    <img class="icon" src="">
-
-                                    <p class="card-text"></p>
-                                        <p class="high"></p>
-                                        <!-- <p class="low"></p> -->
-                                        <p class="humidity"></p>
-                                        <p class="wind-speed"></p>
-                                  
-                                </div>
-                            </div>
-                            <!-- End card 5 -->
-                        </div>
-
-                        <div class="col-xl-4 text-center future" id="day5">
-                            <!-- Card 4 inserted here -->
-                            <div class="card" style="width: 18rem;">
-                                <h3 class="card-title">Day 6</h3>
-                                
-                                <div class="card-body">
-                                    <img class="icon" src="">
-
-                                    <p class="card-text"></p>
-                                        <p class="high"></p>
-                                        <!-- <p class="low"></p> -->
-                                        <p class="humidity"></p>
-                                        <p class="wind-speed"></p>
-                                    
-                                </div>
-                            </div>
-                            <!-- End card 6 -->
-                        </div>
-
                     </div>
+
+                </div>
+            </section>
+
+            <section>
+                <div class="row justify-content-center">
+                <div class="col-xl-2 text-center future" id="day1">
+                    <!-- Card 2 inserted here -->
+                    <div class="card" style="width: 18rem;">
+                        <h3 class="card-title">Tomorrow</h3>
+
+                        <div class="card-body">
+                            <img class="icon" src="">
+
+                            <p class="card-text"></p>
+                            <p class="high"></p>
+                            <!-- <p class="low"></p> -->
+                            <p class="humidity"></p>
+                            <p class="wind-speed"></p>
+                        </div>
+                    </div>
+                    <!-- End card 2 -->
                 </div>
 
+
+                <div class="col-xl-2 text-center future" id="day2">
+                    <!-- Card 3 inserted here -->
+                    <div class="card" style="width: 18rem;">
+                        <h3 class="card-title">Day 3</h3>
+
+
+                        <div class="card-body">
+                            <img class="icon" src="">
+
+                            <p class="card-text"></p>
+                            <p class="high"></p>
+                            <!-- <p class="low"></p> -->
+                            <p class="humidity"></p>
+                            <p class="wind-speed"></p>
+
+                        </div>
+                    </div>
+                    <!-- End card 3 -->
+                </div>
+
+                <div class="col-xl-2 text-center future" id="day3">
+                    <!-- Card 4 inserted here -->
+                    <div class="card" style="width: 18rem;">
+                        <h3 class="card-title">Day 4</h3>
+
+                        <div class="card-body">
+                            <img class="icon" src="">
+
+                            <p class="card-text"></p>
+                            <p class="high"></p>
+                            <!-- <p class="low"></p> -->
+                            <p class="humidity"></p>
+                            <p class="wind-speed"></p>
+
+                        </div>
+                    </div>
+                    <!-- End card 4 -->
+                </div>
+
+                <div class="col-xl-2 text-center future" id="day4">
+                    <!-- Card 4 inserted here -->
+                    <div class="card" style="width: 18rem;">
+                        <h3 class="card-title">Day 5</h3>
+
+                        <div class="card-body">
+                            <img class="icon" src="">
+
+                            <p class="card-text"></p>
+                            <p class="high"></p>
+                            <!-- <p class="low"></p> -->
+                            <p class="humidity"></p>
+                            <p class="wind-speed"></p>
+
+                        </div>
+                    </div>
+                    <!-- End card 5 -->
+                </div>
+
+                <div class="col-xl-2 text-center future" id="day5">
+                    <!-- Card 4 inserted here -->
+                    <div class="card" style="width: 18rem;">
+                        <h3 class="card-title">Day 6</h3>
+
+                        <div class="card-body">
+                            <img class="icon" src="">
+
+                            <p class="card-text"></p>
+                            <p class="high"></p>
+                            <!-- <p class="low"></p> -->
+                            <p class="humidity"></p>
+                            <p class="wind-speed"></p>
+
+                        </div>
+                    </div>
+                    <!-- End card 6 -->
+                </div>
             </div>
+            </section>
+
         </div>
-    
+
 
     </main>
 
