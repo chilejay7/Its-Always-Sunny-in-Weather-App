@@ -46,6 +46,12 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    background-color: var(--color1);
+    border-radius: .5em;
+}
+
 body {
     background-color: var(--color9);
 }
@@ -63,8 +69,8 @@ label {
 }
 
 button {
-    border-radius: .5em;
-    background-color: var(--color5);
+    border-radius: .8em;
+    background-color: var(--color1);
     font-weight: bold;
 }
 
