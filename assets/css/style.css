@@ -9,6 +9,8 @@
     --color7: #1A759F;
     --color8: #1E6091;
     --color9: #184E77;
+    --gradient1: linear-gradient(0.25turn, #34A0A4, #99D98C, #1A759F);
+    --gradient2: linear-gradient(0.25turn, #34A0A4, #99D98C, #1A759F);
 }
 
 *{
@@ -48,14 +50,17 @@ h1 {
 
 h2 {
     text-align: center;
-    background-color: var(--color7);
+    /* background-color: var(--color7); */
+    background: var(--gradient1);
     color: white;
     border-radius: .5em;
 }
 
 h3 {
-    background-color: var(--color1);
+    /* background-color: var(--color1); */
+    background: var(--gradient2);
     border-radius: .5em;
+    margin-top: 10px;
 }
 
 body {
@@ -76,7 +81,7 @@ label {
 
 button {
     border-radius: .8em;
-    background-color: var(--color1);
+    background: var(--gradient2);
     font-weight: bold;
 }
 
