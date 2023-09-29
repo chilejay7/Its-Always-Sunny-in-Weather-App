@@ -22,11 +22,11 @@ const forecastDisplay = $('#forecast-display');
 getCurrentWeather = (city, current) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial`)
     .then(function (response) {
-        console.log(response);
+        // console.log(response);
         return response.json();
     })
     .then(function (data) {
-        console.log(data)
+        // console.log(data)
 
         // The functions used to write data to the different display cards used for the forecast will be passed as arguemnts and called here.
         current(data);
@@ -171,12 +171,12 @@ cityList[0].addEventListener('click', function(e) {
 //     $("#city-list").sortable();
 // });
 
-test = () => {
-    const days = $('.future');
-    let dayCounter = 6;
+// test = () => {
+//     const days = $('.future');
+//     let dayCounter = 6;
 
-    for (let i = 1; i < days.length + 1; i++) {
-        console.log(dayCounter);
-        dayCounter += 5;
-    }
-}
+//     for (let i = 1; i < days.length + 1; i++) {
+//         console.log(dayCounter);
+//         dayCounter += 5;
+//     }
+// }

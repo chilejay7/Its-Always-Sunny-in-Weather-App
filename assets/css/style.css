@@ -48,6 +48,12 @@ h1 {
 
 h2 {
     text-align: center;
+    background-color: var(--color7);
+    color: white;
+    border-radius: .5em;
+}
+
+h3 {
     background-color: var(--color1);
     border-radius: .5em;
 }
@@ -109,6 +115,13 @@ button {
     color: white;
     font-weight: bold;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+    #extended-forecast .future {
+        margin-left: 50px;
+        
+    }
 }
 /* #forecast-row {
     flex-wrap: nowrap;
