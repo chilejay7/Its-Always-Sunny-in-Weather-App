@@ -10,7 +10,7 @@
     --color8: #1E6091;
     --color9: #184E77;
     --gradient1: linear-gradient(0.25turn, #34A0A4, #99D98C, #1A759F);
-    --gradient2: linear-gradient(0.25turn, #34A0A4, #99D98C, #1A759F);
+    --gradient2: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C);
 }
 
 *{
@@ -52,7 +52,7 @@ h2 {
     text-align: center;
     /* background-color: var(--color7); */
     background: var(--gradient1);
-    color: white;
+    /* color: white; */
     border-radius: .5em;
 }
 
@@ -83,6 +83,7 @@ button {
     border-radius: .8em;
     background: var(--gradient2);
     font-weight: bold;
+    color: white;
 }
 
 #forecast-display {
