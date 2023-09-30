@@ -92,7 +92,7 @@ currentForecast = (data) => {
 // This function writes data for the extended forecast.
 forecastDays = (data) => {
     const days = $('.future');
-    let dayCounter = 6;
+    let dayCounter = 5;
 
     for (let i = 1; i < days.length + 1; i++) {
         let temp = $(`#day${i} .high`);
