@@ -171,7 +171,13 @@ searchForm.on('submit', function (e) {
     getForecast(inputCity, forecastDays);
 
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
-    searchedCities.push(inputCity);
+
+    if (searchedCities.length === 5) {
+        searchedCities.pop();
+    }
+    
+    searchedCities.unshift(inputCity);
+
     // displayForecast(getWeather);
 
     storeSearches();
@@ -194,7 +200,6 @@ cityList[0].addEventListener('click', function(e) {
      getForecast(e.target.innerText, forecastDays)
  }
 });
-
 
 // This would allow for a sortable list of cities.
 // $(function () {
