@@ -1,4 +1,6 @@
 :root {
+
+    /* Spring gradient */
     --color0: #D9ED92;
     --color1: #B5E48C;
     --color2: #99D98C;
@@ -9,8 +11,42 @@
     --color7: #1A759F;
     --color8: #1E6091;
     --color9: #184E77;
-    --gradientDark: linear-gradient(0.25turn, #1E6091, #99D98C, #1A759F);
-    --gradientLight: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C);
+    /* --gradientDark: linear-gradient(0.25turn, #1E6091, #99D98C, #1A759F); */
+    /* --gradientLight: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C); */
+
+    --color0: #BD2601;
+    --color1: #D44D01;
+    --color2: #EA7401;
+    --color3: #F7A200;
+    --color3: #FBBF03;
+    --color4: #FFE700;
+    --color5: #FFEE57;
+    --color6: #FFF4AD;
+    --color7: #FCF4DD;
+    /* --gradientDark: linear-gradient(0.25turn, #BD2601, #FBBF03, #EA7401);
+    --gradientLight: linear-gradient(0.25turn, #FFEE57, #EA7401, #FFF4AD); */
+
+    --fall1: #bc6c25;
+    --fall2: #dda15e;
+    --fall3: #fefae0;
+    --fall4: #283618;
+    --fall5: #606c38;
+    --gradientDark: linear-gradient(0.25turn, #BD2601, #FBBF03, #EA7401);
+    --gradientLight: linear-gradient(0.25turn, #FFEE57, #EA7401, #FFF4AD);
+    
+    
+}
+
+.card {
+    font-weight: bold;
+    /* Spring gradient */
+    /* background: radial-gradient(#D9ED92, #B5E48C, #76C893); */
+
+    /* Summer gradient */
+    /* background: radial-gradient(#FFEE57, #ca6702); */
+
+    /* Fall gradient */
+    background: radial-gradient(#fefae0, #bc6c25);
 }
 
 *{
@@ -89,7 +125,7 @@ button {
 
 #forecast-display {
     width: 100%;
-    background-color: var(--color0);
+    /* background-color: var(--color0); */
     border-radius: .5em;
 }
 
@@ -111,11 +147,6 @@ button {
 
 .description {
     display:inline-block;
-}
-
-.card {
-    font-weight: bold;
-    background: radial-gradient(#D9ED92, #B5E48C, #76C893);
 }
 
 .city-name {
