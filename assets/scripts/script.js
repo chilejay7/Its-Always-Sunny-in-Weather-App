@@ -78,7 +78,7 @@ currentForecast = (data) => {
     const currentHigh = $('#display-current-weather .high');
     const currentLow = $('#display-current-weather .low');
     // console.log(data.name);
-    cityName[0].innerText = data.name;
+    cityName[0].innerText = `Current Weather Conditions: ${data.name}`;
     currentDate[0].innerText = dayjs().format('ddd, MMM DD h:mm a');
     currentConditions[0].innerText = data.weather[0].description;
     iconDisplay[0].src = iconUrl;
@@ -89,7 +89,7 @@ currentForecast = (data) => {
     $('#display-current-weather .wind-speed')[0].innerText = `Wind: ${data.wind.speed} mph` 
 }
 
-// This function writes data for the extended forecast.
+// This function writes data for the extended forecast.  The days variable defines the cards that had a class of future added.  The hour variable is used to return a value for the current hour that is compared against the value of 12 to set a counter which elminates data for the current day.
 forecastDays = (data) => {
     const days = $('.future');
     const hour = dayjs().format('h');
@@ -101,6 +101,7 @@ forecastDays = (data) => {
         dayCounter = 5;
     };
 
+    // The loop sets the iterative value at 1 because it is used to identify the card it should write data to, and there is no card 0.  days.length uses +1 to match the starting value of i.  This then uses the counter's value and i to select dat and write it to the appropriate card.
     for (let i = 1; i < days.length + 1; i++) {
         let temp = $(`#day${i} .high`);
         // let low = $(`#day${i} .low`);
@@ -112,7 +113,7 @@ forecastDays = (data) => {
         // console.log(i+3);
 
         temp[0].innerText = `High: ${Math.round(data.list[dayCounter].main.temp_max)} °F`;
-        // This was removed from the application since data returned from the server does not display different values fo high and low temp information within the same array for future data.
+        // This was removed from the application since data returned from the server does not display different values for high and low temp information within the same array for future data.  The values are always identical for these fields.
         // low[0].innerText = `Low: ${Math.round(data.list[i+3].main.temp_min)} °F`;
         humidity[0].innerText = `Humidity: ${data.list[dayCounter].main.humidity} %`;
         wind[0].innerText = `Wind: ${data.list[dayCounter].wind.speed} mph`;
