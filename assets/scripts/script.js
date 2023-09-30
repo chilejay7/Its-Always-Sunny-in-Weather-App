@@ -1,6 +1,6 @@
 const currentTime = dayjs();
 const searchForm = $('#search-form');
-const autoCompleteList = ['Denver', 'Granville', 'Lawrence', 'Grandview', 'Chicago', 'Seattle', 'New York', 'Boise', 'Idaho Falls', 'Boulder', 'Littleton', 'Colorado Springs', 'Estes Park', 'Winter Park', 'Fraiser', 'Madison']
+const autoCompleteList = ['Boise', 'Boulder', 'Cheyenne', 'Chicago', 'Cody', 'Colorado Springs', 'Denver', 'Estes Park', 'Fraiser', 'Grandview', 'Granville', 'Idaho Falls', 'Lander', 'Laramie', 'Lawrence', 'Littleton', 'Madison', 'New York', 'Seattle', 'Winter Park'];
 // const searchForm = document.getElementById('search-form');
 // https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a65fbee006d1cdf010afb7d2f7201d89&units=imperial
 
