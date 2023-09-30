@@ -1,28 +1,29 @@
 :root {
 
-    /* Spring gradient */
-    --color0: #D9ED92;
-    --color1: #B5E48C;
-    --color2: #99D98C;
-    --color3: #76C893;
-    --color4: #52B69A;
-    --color5: #34A0A4;
-    --color6: #168AAD;
-    --color7: #1A759F;
-    --color8: #1E6091;
-    --color9: #184E77;
+    /* spring gradient */
+    --spring0: #D9ED92;
+    --spring1: #B5E48C;
+    --spring2: #99D98C;
+    --spring3: #76C893;
+    --spring4: #52B69A;
+    --spring5: #34A0A4;
+    --spring6: #168AAD;
+    --spring7: #1A759F;
+    --spring8: #1E6091;
+    --spring9: #184E77;
     /* --gradientDark: linear-gradient(0.25turn, #1E6091, #99D98C, #1A759F); */
     /* --gradientLight: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C); */
 
-    --color0: #BD2601;
-    --color1: #D44D01;
-    --color2: #EA7401;
-    --color3: #F7A200;
-    --color3: #FBBF03;
-    --color4: #FFE700;
-    --color5: #FFEE57;
-    --color6: #FFF4AD;
-    --color7: #FCF4DD;
+    /* summer gradient */
+    --summer0: #BD2601;
+    --summer1: #D44D01;
+    --summer2: #EA7401;
+    --summer3: #F7A200;
+    --summer3: #FBBF03;
+    --summer4: #FFE700;
+    --summer5: #FFEE57;
+    --summer6: #FFF4AD;
+    --summer7: #FCF4DD;
     /* --gradientDark: linear-gradient(0.25turn, #BD2601, #FBBF03, #EA7401);
     --gradientLight: linear-gradient(0.25turn, #FFEE57, #EA7401, #FFF4AD); */
 
@@ -39,13 +40,13 @@
 
 .card {
     font-weight: bold;
-    /* Spring gradient */
+    /* summer gradient */
     /* background: radial-gradient(#D9ED92, #B5E48C, #76C893); */
 
     /* Summer gradient */
     /* background: radial-gradient(#FFEE57, #ca6702); */
 
-    /* Fall gradient */
+    /* summer gradient */
     background: radial-gradient(#fefae0, #bc6c25);
 }
 
@@ -58,8 +59,8 @@
 header {
     /* background-image: url('../images/hanging_leaves.jpg');
     background-size: cover; */
-    /* color: var(--color2); */
-    /* color: white;
+    /* summer: var(--summer2); */
+    /* summer: white;
     text-align: center; */
     border-radius: .5em;
     /* -webkit-text-stroke: .5px black; */
@@ -86,7 +87,7 @@ h1 {
 
 h2 {
     text-align: center;
-    background: var(--gradientDark);
+    background: var(--gradientLight);
     border-radius: .5em;
 }
 
@@ -97,7 +98,7 @@ h3 {
 }
 
 body {
-    background-color: var(--color9);
+    background-color: var(--spring9);
 }
 
 form {
@@ -125,7 +126,7 @@ button {
 
 #forecast-display {
     width: 100%;
-    /* background-color: var(--color0); */
+    /* background-summer: var(--summer0); */
     border-radius: .5em;
 }
 
@@ -156,7 +157,7 @@ button {
 }
 
 #extended-forecast .card {
-    background-color: white;
+    
 }
 
 @media screen and (max-width: 750px) {
