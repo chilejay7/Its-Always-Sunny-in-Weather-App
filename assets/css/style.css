@@ -9,8 +9,8 @@
     --color7: #1A759F;
     --color8: #1E6091;
     --color9: #184E77;
-    --gradient1: linear-gradient(0.25turn, #34A0A4, #99D98C, #1A759F);
-    --gradient2: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C);
+    --gradientDark: linear-gradient(0.25turn, #1E6091, #99D98C, #1A759F);
+    --gradientLight: linear-gradient(0.25turn, #99D98C, #34A0A4, #B5E48C);
 }
 
 *{
@@ -51,14 +51,14 @@ h1 {
 h2 {
     text-align: center;
     /* background-color: var(--color7); */
-    background: var(--gradient1);
+    background: var(--gradientDark);
     /* color: white; */
     border-radius: .5em;
 }
 
 h3 {
     /* background-color: var(--color1); */
-    background: var(--gradient2);
+    background: var(--gradientLight);
     border-radius: .5em;
     margin-top: 10px;
 }
@@ -81,8 +81,12 @@ label {
 
 button {
     border-radius: .8em;
-    background: var(--gradient2);
+    background: var(--gradientLight);
     font-weight: bold;
+}
+
+#search-btn {
+    background: var(--gradientDark);
     color: white;
 }
 
@@ -123,12 +127,17 @@ button {
     font-size: 2rem;
 }
 
+#extended-forecast .card {
+    background-color: white;
+}
+
 @media screen and (max-width: 750px) {
-    #extended-forecast .future {
-        margin-left: 50px;
-        
+    #extended-forecast .card {
+        margin-left: 20px;   
     }
 }
+
+
 /* #forecast-row {
     flex-wrap: nowrap;
 } */
