@@ -50,15 +50,12 @@ h1 {
 
 h2 {
     text-align: center;
-    /* background-color: var(--color7); */
     background: var(--gradientDark);
-    /* color: white; */
     border-radius: .5em;
 }
 
 h3 {
-    /* background-color: var(--color1); */
-    background: var(--gradientLight);
+    background: var(--gradientDark);
     border-radius: .5em;
     margin-top: 10px;
 }
@@ -115,10 +112,10 @@ button {
 .description {
     display:inline-block;
 }
-/* .current, .high, .low,
-.feels-like, .description*/
+
 .card {
     font-weight: bold;
+    background: radial-gradient(#D9ED92, #B5E48C, #76C893);
 }
 
 .city-name {
@@ -136,21 +133,3 @@ button {
         margin-left: 20px;   
     }
 }
-
-
-/* #forecast-row {
-    flex-wrap: nowrap;
-} */
-
-/* ul{
-    width: 10%;
-    display: inline-block;
-} */
-
-/* section {
-    display: inline-block;
-} */
-
-/* #main {
-    margin: 0;
-} */
