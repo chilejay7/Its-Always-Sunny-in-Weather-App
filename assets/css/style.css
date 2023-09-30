@@ -1,5 +1,10 @@
 :root {
 
+    --blue: #023e8a;
+    --blue2: #0077b6;
+    --lightblue: #0096c7;
+    --darkblue: #03045e;
+
     /* spring gradient */
     --spring0: #D9ED92;
     --spring1: #B5E48C;
@@ -85,10 +90,11 @@ h1 {
     text-align: center;
 }
 
-h2 {
+#forecast-header {
     text-align: center;
     background: var(--gradientLight);
     border-radius: .5em;
+    padding: 15px;
 }
 
 h3 {
@@ -98,7 +104,8 @@ h3 {
 }
 
 body {
-    background-color: var(--spring9);
+    /* background-color: var(--blue); */
+    background: linear-gradient(#03045e, #0096c7, #03045e);
 }
 
 form {
@@ -120,8 +127,8 @@ button {
 }
 
 #search-btn {
-    background: var(--gradientDark);
-    color: white;
+    background: var(--gradientLight);
+    
 }
 
 #forecast-display {
