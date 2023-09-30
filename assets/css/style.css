@@ -55,7 +55,7 @@ h2 {
 }
 
 h3 {
-    background: var(--gradientDark);
+    /* background: var(--gradientDark); */
     border-radius: .5em;
     margin-top: 10px;
 }
