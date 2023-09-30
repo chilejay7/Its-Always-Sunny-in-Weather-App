@@ -103,6 +103,18 @@ h3 {
     margin-top: 10px;
 }
 
+h4{
+    font-size: 1rem;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+
+
 body {
     /* background-color: var(--blue); */
     background: linear-gradient(#03045e, #0096c7, #03045e);
