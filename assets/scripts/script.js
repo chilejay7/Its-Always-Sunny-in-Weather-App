@@ -10,6 +10,11 @@ const searchInput = $('#city-input');
 
 const forecastDisplay = $('#forecast-display');
 
+$(document).ready (function() {
+    restoreSearches();
+
+    createCityButtons();
+})
 
 // This code has been commented out but left as it creates a submit event listener, but uses syntax that is not jQuery.  It represents another method of acheiving the same end as the jQuery listener above.
 // searchForm.addEventListener('submit', function (e) {
@@ -56,12 +61,27 @@ getForecast = (city, forecastFunc) => {
 
 // To make this work an array will be needed.  It will start empty and need to be written to local storage.  The basic functionality has been tested and does work.  The array's values are updated with a push of the search input in the submit form's event listener.
 const cityList = $('#city-list');
-const searchedCities = [];
+let searchedCities = [];
 
 createCityButtons = () => {
 for (let i=0; i < cityList[0].children.length; i++) {
     cityList[0].children[i].innerText = searchedCities[i]
 }
+};
+
+storeSearches = () => {
+   let searchedString = JSON.stringify(searchedCities);
+   localStorage.setItem('cities', searchedString);
+};
+
+restoreSearches = () => {
+    let getSearches = localStorage.getItem('cities');
+
+    if (getSearches === null || getSearches === 'undefined') {
+        return searchedCities = [];
+    } else {
+        return searchedCities = JSON.parse(localStorage.getItem('cities'));
+    }
 };
 
 // This function sets the forecast for current weather conditions in the location requested.  It would be a good idea to dynamically populate the alt image attribute text with the description to improve accessibility when the application is finalized for release.
@@ -78,7 +98,7 @@ currentForecast = (data) => {
     const currentHigh = $('#display-current-weather .high');
     const currentLow = $('#display-current-weather .low');
     // console.log(data.name);
-    cityName[0].innerText = `Current Weather Conditions: ${data.name}`;
+    cityName[0].innerText = data.name;
     currentDate[0].innerText = dayjs().format('ddd, MMM DD h:mm a');
     currentConditions[0].innerText = data.weather[0].description;
     iconDisplay[0].src = iconUrl;
@@ -153,6 +173,8 @@ searchForm.on('submit', function (e) {
     // This will add the searched cities to an array that holds previously searched values.  The array will be used to write the values to the list item buttons.
     searchedCities.push(inputCity);
     // displayForecast(getWeather);
+
+    storeSearches();
 
     createCityButtons();
     
