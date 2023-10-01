@@ -142,6 +142,10 @@ button {
     
 }
 
+#display-current-weather {
+    box-sizing: content-box;
+}
+
 #forecast-row {
     width: 85%;
 }

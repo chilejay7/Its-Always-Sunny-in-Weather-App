@@ -112,11 +112,13 @@ currentForecast = (data) => {
 // This function writes data for the extended forecast.  The days variable defines the cards that had a class of future added.  The hour variable is used to return a value for the current hour that is compared against the value of 12 to set a counter which elminates data for the current day.
 forecastDays = (data) => {
     const days = $('.future');
-    const hour = dayjs().format('h');
+    const hour = dayjs().format('HH');
     let dayCounter = 0;
 
     if (hour < 12) {
         dayCounter = 6;
+    } else if (hour >= 21) {
+        dayCounter = 2;
     } else {
         dayCounter = 5;
     };
