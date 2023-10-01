@@ -14,6 +14,8 @@ A screenshot of the application has been included below for reference. A city ca
 
 The locations searched are also passed to an array that is written to local storage.  The city's value is written to a corresponding button that can be clicked to trigger the same forecast functions used in the submit event.  Clicking on any of the buttons with a named location will retrieve its forecast data.  The previous locations are retrieved from storage and written to the buttons when the page loads.  The number of locations is currently set at five.  If the limit is reached, the oldest entry in the array will be removed in favor of the new search location.
 
+The appliation and its color palettes are built with the idea of being seasonal in mind.  Variables within the application have already been set for different color palettes that could be used in the coming seasons.
+
 ![alt text](./assets/images/AlwaysSunny.png)
 
 ## Credits
