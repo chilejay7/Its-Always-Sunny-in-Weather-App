@@ -74,8 +74,9 @@ header {
 
 header::before {
     content: '';
-    background-image: url('../images/hanging_leaves.jpg');
+    background: url('../images/hanging_leaves.jpg');
     background-size: cover;
+    /* background-position: center; */
     position: absolute;
     top: 0px;
     right: 0px;
@@ -113,8 +114,6 @@ footer {
     margin-top: 20px;
 }
 
-
-
 body {
     /* background-color: var(--blue); */
     background: linear-gradient(#03045e, #0096c7, #03045e);
@@ -143,6 +142,10 @@ button {
     
 }
 
+#forecast-row {
+    width: 85%;
+}
+
 #forecast-display {
     width: 100%;
     /* background-summer: var(--summer0); */
@@ -150,7 +153,7 @@ button {
 }
 
 .container-fluid {
-    background-image: url(../images/mushroom.jpg);
+    background-image: url("../images/mushroom.jpg");
     background-size: cover;
     border-radius: .5em;
 }
@@ -175,12 +178,10 @@ button {
     font-size: 2rem;
 }
 
-#extended-forecast .card {
-    
-}
-
 @media screen and (max-width: 750px) {
-    #extended-forecast .card {
+    #extended-forecast {
         margin-left: 20px;   
     }
+
+
 }
